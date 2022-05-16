@@ -31,8 +31,10 @@ public class ExcelDataExtractor {
 	public static Sheet getSheet(String sheetName) {
 		HSSFSheet hssfSheet = null; 
 		try {   
-
-			String inputFile = PropertyHandler.getProperty("InPutDataFile");
+			
+			String dir = System.getProperty("user.dir");
+			System.out.println(dir);
+			String inputFile = dir + PropertyHandler.getProperty("InPutDataFile");
 
 			FileInputStream file = new FileInputStream(new File(inputFile));
 
