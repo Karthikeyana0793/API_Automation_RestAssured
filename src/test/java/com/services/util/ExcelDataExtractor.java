@@ -32,9 +32,7 @@ public class ExcelDataExtractor {
 		HSSFSheet hssfSheet = null; 
 		try {   
 			
-			String dir = System.getProperty("user.dir");
-			System.out.println(dir);
-			String inputFile = dir + PropertyHandler.getProperty("InPutDataFile");
+			String inputFile = Util.getRootDirectoryPath() + PropertyHandler.getProperty("InPutDataFile");
 
 			FileInputStream file = new FileInputStream(new File(inputFile));
 

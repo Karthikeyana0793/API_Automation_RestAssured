@@ -47,17 +47,6 @@ public class HitService {
 		return response;
 	}
 
-	public static Response getJSONResponse(String jsonRequestBody, String endURL, String accessToken) {
-		RequestSpecification request = RestAssured.given();
-		request.header("Content-Type", "application/json");
-		request.header("Authorization", "bearer " + accessToken);
-		request.body(jsonRequestBody);
-		Response response = request.given().config(config).post(endURL);
-		Assert.assertEquals(response.getStatusCode(), 200, "Response is not 200");
-
-		return response;
-	}
-
 	public static String getResponseValue(Response response, String responseParam) {
 		Object responseParamValue = response.jsonPath().get(responseParam);
 		Assert.assertTrue(null != responseParamValue, responseParam + " is not found");
